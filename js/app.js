@@ -3,8 +3,7 @@
 var Enemy = function(x,y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-        this.x+=1;
-        this.y+=1;
+     
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -13,6 +12,10 @@ var Enemy = function(x,y) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+    this.x+=1;
+    if(this.x > 400){
+        this.x=-100;
+    }
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -37,11 +40,46 @@ var Player =function(x,y){
     this.playerimage='images/char-boy.png';
 
 }
-Player.prototype.update=function(){
+Player.prototype.update=function(keypress){
+
+    if(this.x > 400){
+        this.x=400;
+    }
+    else if(this.x <0){
+        this.x=0;
+    }
+    else if(this.y >380){
+        this.y=380;
+    }
+    else if (this.y <0) {
+        this.x=200;
+        this.y=380;
+    }
+    //else if(this.x )
+    
        
 }
 
 Player.prototype.handleInput=function(keypress){
+    if(keypress==="left"){
+        this.x=this.x -100;
+        console.log(this.y);
+    }
+    else if(keypress==="right"){
+        this.x=this.x + 100;
+        console.log(this.y);
+    }
+    else if(keypress==="up"){
+          this.y=this.y - 100 ;
+          console.log(this.y);
+    }
+    else if(keypress==="down"){
+        this.y=this.y + 100;
+        console.log(this.y);
+    }
+    else{
+         window.alert("invalid key pressed!. Use the arrow Keys");
+    }
     
 
 }
@@ -66,9 +104,12 @@ document.addEventListener('keyup', function(e) {
 });
 var allEnemies=[];
 var player= new Player(250,400);
-var enemyspeed=[50,100,100];
-var enemy
-enemyspeed.forEach(function(){
-     enemy=new Enemy(250,420);
+var enemyspeed=[200,300,400];
+var enemy;
+
+enemyspeed.forEach(function(e){
+     enemy=new Enemy(0,420);
+     enemy=new Enemy(0,420-e);
+     
     allEnemies.push(enemy);
 })
