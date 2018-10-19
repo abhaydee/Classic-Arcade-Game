@@ -69,6 +69,7 @@ Enemy.prototype.update = function (dt) {
 
     // console.log(this.y);
     if ((player.x < this.x + 60) && (player.x + 38 > this.x) && (player.y === (this.y))) {
+        window.alert("its okay , give it a try again!.")
         player.x = 200;
         player.y = 380;
     }
@@ -130,15 +131,27 @@ Player.prototype.update = function (keypress) {
         this.y = 380; console.log(this.y);
         console.log("reached the end");
         incr++;
+
+        var myincr = document.getElementById("levels");
+        myincr.innerHTML = `${incr + 1}`;
         console.log(incr);
         if (incr === 1) {
+            window.alert("congrats for clearing the first round");
+            //document.write('<p class="pops">congrats for clearing the first round</p>');
             this.playerimage = shufflediff[1];
         } else if (incr === 2) {
+            window.alert("congrats for clearing the second round");
+            //document.write('<p class="pops">congrats for clearing the second round</p>')
             this.playerimage = shufflediff[2];
         } else if (incr === 3) {
+            window.alert("congrats for clearing the third round");
+            // document.write('<p class="pops">Congrats for clearing the thirs round</p>');
             this.playerimage = shufflediff[3];
         } else if (incr === 4) {
+            window.alert("End of the game,Thanks for playing .");
+            //document.write('<p class="pops">Congrats for clearing the fourth round<p>')
             this.playerimage = shufflediff[4];
+            reset();
             clearInterval(time1);
         }
 
@@ -152,6 +165,13 @@ Player.prototype.update = function (keypress) {
 
     //}
 
+
+}
+
+function reset() {
+    clearInterval(time1);
+    myincr = document.getElementById("levels");
+    myincr.textCotent = "everything completed";
 
 }
 

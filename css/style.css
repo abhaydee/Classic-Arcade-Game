@@ -23,5 +23,13 @@ body {
     height:10px;
     position:absolute;
     top:100px;
-    right:50%;
+    font-size: 100%;
+    right:45%;
+}
+
+#levels{
+  position: absolute;
+  top:80px;
+  font-size:100%;
+  left: 52%;
 }
