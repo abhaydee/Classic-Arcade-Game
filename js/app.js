@@ -1,5 +1,25 @@
 // Enemies our player must avoid
 
+let diffplayers = ['images/char-boy.png', 'images/char-cat-girl.png', 'images/char-horn-girl.png', 'images/char-pink-girl.png', 'images/char-princess-girl.png'];
+
+let objects = ['images/Heart.png', 'images/Key.png', 'images/Star.png', 'images/Selector.png'];
+let diffobjects = ['images/Heart.png', 'images/Key.png', 'images/Star.png', 'images/Selector.png'];
+let diffgems = ['images/Gem Blue.png', 'images/Gem Green.png', 'images/Gem Orange.png'];
+
+function time(secs) //to pad 0 in secs
+{
+    return secs > 9 ? secs : "0" + secs;
+}
+
+//let time1 = setInterval(function () //function for time
+//{
+//  sec++;
+//second = document.getElementById("seconds").innerHTML = time(sec % 60);
+//minute = document.getElementById("minutes").innerHTML = time(parseInt(sec / 60)) + ":";
+//}, 1000);
+
+
+
 var Enemy = function (x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -15,7 +35,8 @@ var Enemy = function (x, y, speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function (dt) {
-    this.x += 1; this.speed;
+    this.x += 1;
+    this.speed;
     //point1=this.x;
     this.x += this.speed * dt;
     var level = 0;
@@ -26,15 +47,13 @@ Enemy.prototype.update = function (dt) {
             this.speed = 50 + Math.floor(Math.random() * 350);
             // console.log("the speed is set");
         }
-    }
-    else if (level === 2) {
+    } else if (level === 2) {
         if (this.x > 400) {
             this.x = -100;
             this.speed = 50 + Math.floor(Math.random() * 400);
             // console.log("the speed is set");
         }
-    }
-    else if (level === 3) {
+    } else if (level === 3) {
         if (this.x > 400) {
             this.x = -100;
             this.speed = 50 + Math.floor(Math.random() * 450);
@@ -45,9 +64,9 @@ Enemy.prototype.update = function (dt) {
 
 
     let temp = player.x - this.x;
-    console.log(player.y);
+    // console.log(player.y);
 
-    console.log(this.y);
+    // console.log(this.y);
     if ((player.x < this.x + 60) && (player.x + 38 > this.x) && (player.y === (this.y))) {
         player.x = 200;
         player.y = 380;
@@ -79,23 +98,34 @@ var Player = function (x, y) {
     this.x = x;
     this.y = y;
     point2 = this.y;
-    this.playerimage = 'images/char-boy.png';
+    this.playerimage = diffplayers[0];
 
 }
 Player.prototype.update = function (keypress) {
 
     if (this.x > 400) {
         this.x = 400;
-    }
-    else if (this.x < 0) {
+    } else if (this.x < 0) {
         this.x = 0;
-    }
-    else if (this.y > 380) {
+    } else if (this.y > 380) {
         this.y = 380;
-    }
-    else if (this.y < 0) {
+
+    } else if (this.y < 0) {
         this.x = 200;
-        this.y = 380;
+        this.y = 380; console.log(this.y);
+        console.log("reached the end");
+        incr++;
+        console.log(incr);
+        if (incr === 1) {
+            this.playerimage = diffplayers[1];
+        } else if (incr === 2) {
+            this.playerimage = diffplayers[2];
+        } else if (incr === 3) {
+            this.playerimage = diffplayers[3];
+        } else if (incr === 4) {
+            this.playerimage = diffplayers[4];
+        }
+
     }
     //else if(this.x )
     //
@@ -113,20 +143,16 @@ Player.prototype.handleInput = function (keypress) {
     if (keypress === "left") {
         this.x = this.x - 100;
         //console.log(this.y);
-    }
-    else if (keypress === "right") {
+    } else if (keypress === "right") {
         this.x = this.x + 100;
         //console.log(this.y);
-    }
-    else if (keypress === "up") {
+    } else if (keypress === "up") {
         this.y = this.y - 80;
         // console.log(this.y);
-    }
-    else if (keypress === "down") {
+    } else if (keypress === "down") {
         this.y = this.y + 80;
         //console.log(this.y);
-    }
-    else {
+    } else {
         window.alert("invalid key pressed!. Use the arrow Keys");
     }
 
@@ -157,6 +183,7 @@ var enemyspeed = [200, 280, 360];
 var enemy;
 var point1;
 var point2;
+let incr = 0;
 
 enemyspeed.forEach(function (e) {
 
