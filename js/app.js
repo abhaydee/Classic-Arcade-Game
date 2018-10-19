@@ -10,13 +10,14 @@ function time(secs) //to pad 0 in secs
 {
     return secs > 9 ? secs : "0" + secs;
 }
-
-//let time1 = setInterval(function () //function for time
-//{
-//  sec++;
-//second = document.getElementById("seconds").innerHTML = time(sec % 60);
-//minute = document.getElementById("minutes").innerHTML = time(parseInt(sec / 60)) + ":";
-//}, 1000);
+let sec = 0;
+let second, minute = 0;
+let time1 = setInterval(function () //function for time
+{
+    sec++;
+    second = document.getElementById("seconds").innerHTML = time(sec % 60);
+    minute = document.getElementById("minutes").innerHTML = time(parseInt(sec / 60)) + ":";
+}, 1000);
 
 
 
@@ -89,16 +90,30 @@ Enemy.prototype.render = function () {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    //console.log(array);
+    return array;
+}
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+let shufflediff = shuffle(diffplayers);
 var Player = function (x, y) {
     this.x = x;
     this.y = y;
     point2 = this.y;
-    this.playerimage = diffplayers[0];
+    this.playerimage = shufflediff[0];
 
 }
 Player.prototype.update = function (keypress) {
@@ -117,13 +132,14 @@ Player.prototype.update = function (keypress) {
         incr++;
         console.log(incr);
         if (incr === 1) {
-            this.playerimage = diffplayers[1];
+            this.playerimage = shufflediff[1];
         } else if (incr === 2) {
-            this.playerimage = diffplayers[2];
+            this.playerimage = shufflediff[2];
         } else if (incr === 3) {
-            this.playerimage = diffplayers[3];
+            this.playerimage = shufflediff[3];
         } else if (incr === 4) {
-            this.playerimage = diffplayers[4];
+            this.playerimage = shufflediff[4];
+            clearInterval(time1);
         }
 
     }
