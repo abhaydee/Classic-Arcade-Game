@@ -2,8 +2,8 @@
 //players array
 let diffplayers = ['images/char-boy.png', 'images/char-cat-girl.png', 'images/char-horn-girl.png', 'images/char-pink-girl.png', 'images/char-princess-girl.png'];
 
-let objects = ['images/Heart.png', 'images/Key.png', 'images/Star.png', 'images/Selector.png'];
-let diffobjects = ['images/Heart.png', 'images/Key.png', 'images/Star.png', 'images/Selector.png'];
+
+
 
 
 function time(secs) //to pad 0 in secs
@@ -45,7 +45,7 @@ Enemy.prototype.update = function (dt) {
     if (level === 1) {
         if (this.x > 400) {
             this.x = -100;
-            this.speed = 50 + Math.floor(Math.random() * 350);
+            this.speed = 150 + Math.floor(Math.random() * 550);
             // console.log("the speed is set");
         }
     } else if (level === 2) {
@@ -65,9 +65,7 @@ Enemy.prototype.update = function (dt) {
 
 
     let temp = player.x - this.x;
-    // console.log(player.y);
 
-    // console.log(this.y);
     if ((player.x < this.x + 60) && (player.x + 38 > this.x) && (player.y === (this.y))) {
         window.alert("its okay , give it a try again!.")
         player.x = 200;
@@ -137,33 +135,26 @@ Player.prototype.update = function (keypress) {
         console.log(incr);
         if (incr === 1) {
             window.alert("congrats for clearing the first round");
-            //document.write('<p class="pops">congrats for clearing the first round</p>');
+
             this.playerimage = shufflediff[1];
         } else if (incr === 2) {
             window.alert("congrats for clearing the second round");
-            //document.write('<p class="pops">congrats for clearing the second round</p>')
+
             this.playerimage = shufflediff[2];
         } else if (incr === 3) {
             window.alert("congrats for clearing the third round");
-            // document.write('<p class="pops">Congrats for clearing the thirs round</p>');
+
             this.playerimage = shufflediff[3];
         } else if (incr === 4) {
             window.alert("End of the game,Thanks for playing .");
-            //document.write('<p class="pops">Congrats for clearing the fourth round<p>')
+
             this.playerimage = shufflediff[4];
             reset();
             clearInterval(time1);
         }
 
     }
-    //else if(this.x )
-    //
-    //if(point1===point2){
-    // console.log("they are matched !Good work now,reset the game");
-    //   this.x=200;
-    //  this.y=380;
 
-    //}
 
 
 }
@@ -178,16 +169,16 @@ function reset() {
 Player.prototype.handleInput = function (keypress) {
     if (keypress === "left") {
         this.x = this.x - 100;
-        //console.log(this.y);
+
     } else if (keypress === "right") {
         this.x = this.x + 100;
-        //console.log(this.y);
+
     } else if (keypress === "up") {
         this.y = this.y - 80;
-        // console.log(this.y);
+
     } else if (keypress === "down") {
         this.y = this.y + 80;
-        //console.log(this.y);
+
     } else {
         window.alert("invalid key pressed!. Use the arrow Keys");
     }

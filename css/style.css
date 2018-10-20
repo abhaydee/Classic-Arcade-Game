@@ -10,24 +10,32 @@ body {
 }
 #paragraph-size{
     font-size: 30px;
+    font-family: 'Chewy', cursive;
 }
 
 #time{
     font-size: 22px;
     font-weight: bold;
     padding: 5px;
+    font-family: 'Arvo', serif;
 }
 #mytime1{
     font-size: 22px;
     font-weight: bold;
     padding: 5px;
+    font-family: 'Arvo', serif;
+}
+#levels{
+    padding: 3px;
 }
 #minutes{
     font-size:22px;
+    font-family: 'Arvo', serif;
 
 }
 #seconds{
     font-size: 22px;
+    font-family: 'Arvo', serif;
 }
 .container 
 {
