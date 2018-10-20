@@ -1,10 +1,10 @@
 // Enemies our player must avoid
-
+//players array
 let diffplayers = ['images/char-boy.png', 'images/char-cat-girl.png', 'images/char-horn-girl.png', 'images/char-pink-girl.png', 'images/char-princess-girl.png'];
 
 let objects = ['images/Heart.png', 'images/Key.png', 'images/Star.png', 'images/Selector.png'];
 let diffobjects = ['images/Heart.png', 'images/Key.png', 'images/Star.png', 'images/Selector.png'];
-let diffgems = ['images/Gem Blue.png', 'images/Gem Green.png', 'images/Gem Orange.png'];
+
 
 function time(secs) //to pad 0 in secs
 {

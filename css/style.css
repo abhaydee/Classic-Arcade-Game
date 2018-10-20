@@ -1,14 +1,34 @@
 
 body {
     text-align: center;
-    /*background-image:url(https://zalarieunique.ru/images/clipart-library-spring-17.png);
-    */background-repeat: no-repeat;
-    /*background-size: 100% 43.7%;*/
+    background-image:url('/images/forest.png');    
+    background-repeat: repeat-x;
+    
+    background-size: 100% 98.7%;
     overflow-x: hidden;
     overflow-y: hidden;
 }
+#paragraph-size{
+    font-size: 30px;
+}
 
+#time{
+    font-size: 22px;
+    font-weight: bold;
+    padding: 5px;
+}
+#mytime1{
+    font-size: 22px;
+    font-weight: bold;
+    padding: 5px;
+}
+#minutes{
+    font-size:22px;
 
+}
+#seconds{
+    font-size: 22px;
+}
 .container 
 {
     display: flex;
