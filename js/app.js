@@ -1,11 +1,11 @@
-// Enemies our player must avoid
+
 //players array
 let diffplayers = ['images/char-boy.png', 'images/char-cat-girl.png', 'images/char-horn-girl.png', 'images/char-pink-girl.png', 'images/char-princess-girl.png'];
 
 
 
 
-
+let out = 0;
 function time(secs) //to pad 0 in secs
 {
     return secs > 9 ? secs : "0" + secs;
@@ -22,8 +22,7 @@ let time1 = setInterval(function () //function for time
 
 
 var Enemy = function (x, y, speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
+    // Variables applied to each of our instances go here
     this.x = x;
     this.y = y;
 
@@ -33,8 +32,9 @@ var Enemy = function (x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
 };
 
-// Update the enemy's position, required method for game
+
 // Parameter: dt, a time delta between ticks
+//updating functionality for the enemies
 Enemy.prototype.update = function (dt) {
     this.x += 1;
     this.speed;
@@ -46,28 +46,37 @@ Enemy.prototype.update = function (dt) {
         if (this.x > 400) {
             this.x = -100;
             this.speed = 150 + Math.floor(Math.random() * 550);
-            // console.log("the speed is set");
+
         }
     } else if (level === 2) {
         if (this.x > 400) {
             this.x = -100;
             this.speed = 50 + Math.floor(Math.random() * 400);
-            // console.log("the speed is set");
+
         }
     } else if (level === 3) {
         if (this.x > 400) {
             this.x = -100;
             this.speed = 50 + Math.floor(Math.random() * 450);
-            // console.log("the speed is set");
+
         }
 
     }
 
 
     let temp = player.x - this.x;
-
+    //clash between enemies and players
     if ((player.x < this.x + 60) && (player.x + 38 > this.x) && (player.y === (this.y))) {
-        window.alert("its okay , give it a try again!.")
+        if (out === 1 || out === 2) {
+            window.alert("its okay , give it a try again!.")
+        }
+        out += 1;
+        console.log(out);
+        if (out === 3) {
+            window.alert("sorry man ,You lost 3 times, U gotta reload")
+            window.location.reload(true);
+        }
+
         player.x = 200;
         player.y = 380;
     }
@@ -76,19 +85,15 @@ Enemy.prototype.update = function (dt) {
 
 
 
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+
 };
 
-// Draw the enemy on the screen, required method for game
+
 Enemy.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+//shuffling of player charectors
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -104,9 +109,7 @@ function shuffle(array) {
 }
 
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+
 let shufflediff = shuffle(diffplayers);
 var Player = function (x, y) {
     this.x = x;
