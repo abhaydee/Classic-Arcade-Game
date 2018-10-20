@@ -1,4 +1,4 @@
-Frontend-nanodegree-arcade-game
+Udacity-Frontend-Nanodegree-arcade-game
 ===============================
 
 ## Game Overview
@@ -18,6 +18,10 @@ Frontend-nanodegree-arcade-game
 ### Dependencies
 * googlefonts [link](https://fonts.googleapis.com/css?family=Lato:300,400)
 
+### Functionality of the files
+ * index.html is used to load the game.
+ * The css folder contains a style.css file which is used for providing different styles to the game
+ * The js folder also contains the app engine needed to run the game
 
 ## Screenshots
 
