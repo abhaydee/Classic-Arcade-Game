@@ -1,6 +1,6 @@
 Frontend-nanodegree-arcade-game
 ===============================
-#Game Overview
+###Game Overview
  classic arcade frogger  is the game in which the player reaches the end of the board while avoiding enemies. This game makes use of Object Oriented JavaScript to provide its functionality.
 
  ### How to Play
