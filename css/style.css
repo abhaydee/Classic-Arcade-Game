@@ -1,7 +1,7 @@
 
 body {
     text-align: center;
-    background-image:url('/images/forest.png');    
+    background-image:url('forest.png');    
     background-repeat: repeat-x;
     
     background-size: 100% 98.7%;

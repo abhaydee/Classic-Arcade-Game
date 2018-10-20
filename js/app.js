@@ -43,19 +43,19 @@ Enemy.prototype.update = function (dt) {
     var level = 0;
     level++;
     if (level === 1) {
-        if (this.x > 400) {
+        if (this.x > 500) {
             this.x = -100;
             this.speed = 150 + Math.floor(Math.random() * 550);
 
         }
     } else if (level === 2) {
-        if (this.x > 400) {
+        if (this.x > 500) {
             this.x = -100;
             this.speed = 50 + Math.floor(Math.random() * 400);
 
         }
     } else if (level === 3) {
-        if (this.x > 400) {
+        if (this.x > 500) {
             this.x = -100;
             this.speed = 50 + Math.floor(Math.random() * 450);
 
